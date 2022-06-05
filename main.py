@@ -11,7 +11,9 @@ data = pd.read_csv(
 )
 data = data.drop(columns=["sum_click"])
 
-data4 = pd.read_csv("/home/shammah/Downloads/student_data.csv")
+data4 = pd.read_csv(
+    "https://raw.githubusercontent.com/shammah-anucha/Dataset/main/student_data.csv"
+)
 feature_list = data4.columns
 d = pd.DataFrame(0, index=[0], columns=feature_list)
 
