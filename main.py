@@ -80,7 +80,9 @@ if st.button("Make Prediction"):
     d.at[0, "score"] = score
     d.at[0, "studied_credits"] = studied_credits
 
-    d.drop(columns=["final_result_Distinction,final_result_Fail,final_result_Pass"])
+    d.drop(
+        columns=["final_result_Distinction", "final_result_Fail", "final_result_Pass"]
+    )
 
     inputs = d
 
