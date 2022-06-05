@@ -50,10 +50,10 @@ with left_column:
 
 
 number_of_previous_attempts = st.slider(
-    "Number of previous attempts", 0.0, max(data["num_of_prev_attempts"]), 1.0
+    "Number of previous attempts", 0, max(data["num_of_prev_attempts"]), 1
 )
-studied_credits = st.slider("Studied credits", 0.0, max(data["studied_credits"]), 1.0)
-score = st.slider("Score", 0.0, max(data["score"]), 1.0)
+studied_credits = st.slider("Studied credits", 0, max(data["studied_credits"]), 1)
+score = st.slider("Score", 0, max(data["score"]), 1)
 
 
 if st.button("Make Prediction"):
