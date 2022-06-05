@@ -85,7 +85,7 @@ if st.button("Make Prediction"):
             "final_result_Distinction",
             "final_result_Fail",
             "final_result_Pass",
-            "sum_clicks",
+            "sum_click",
         ]
     )
 
