@@ -58,19 +58,19 @@ score = st.slider("Score", 0.0, max(data["score"]), 1.0)
 
 if st.button("Make Prediction"):
     for i in disability:
-        if i == c_disability:
+        if i == disability:
             d.at[0, "disability" + "_" + c_disability] = 1
     for i in gender:
-        if i == c_gender:
+        if i == gender:
             d.at[0, "gender" + "_" + c_gender] = 1
     for i in imd_band:
-        if i == c_imd_band:
+        if i == imd_band:
             d.at[0, "imd_band" + "_" + c_imd_band] = 1
     for i in age_band:
-        if i == c_age_band:
+        if i == age_band:
             d.at[0, "age_band" + "_" + c_age_band] = 1
     for i in highest_education:
-        if i == c_highest_education:
+        if i == highest_education:
             d.at[0, "highest_education" + "_" + c_highest_education] = 1
     for i in region:
         if i == c_region:
