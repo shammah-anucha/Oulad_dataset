@@ -73,7 +73,7 @@ if st.button("Make Prediction"):
         if i == highest_education:
             d.at[0, "highest_education" + "_" + c_highest_education] = 1
     for i in region:
-        if i == c_region:
+        if i == region:
             d.at[0, "region" + "_" + c_region] = 1
 
     d.at[0, "num_of_prev_attempts"] = number_of_previous_attempts
