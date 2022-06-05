@@ -7,7 +7,7 @@ from tensorflow import keras
 st.header("Student Prediction App")
 st.text_input("Enter your Name: ", key="name")
 data = pd.read_csv(
-    "https://raw.githubusercontent.com/shammah-anucha/Oulad_dataset/main/full_set.csv?token=GHSAT0AAAAAABTRCNKOI2BUY7UH25EZ3QNMYU47HEA"
+    "https://raw.githubusercontent.com/shammah-anucha/Dataset/main/full_set.csv"
 )
 data = data.drop(columns=["sum_click"])
 
