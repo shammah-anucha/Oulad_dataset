@@ -104,8 +104,6 @@ if st.button("Make Prediction"):
 
     elif pred_string == "[2]":
         st.write("The student will Pass")
-    # print("final pred", np.squeeze(prediction, -1))
-    # st.write(f"Your student's result is: {np.squeeze(prediction, -1):.2f}")
 
     st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     st.write(

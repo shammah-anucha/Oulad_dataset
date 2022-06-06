@@ -151,11 +151,3 @@ elif pred_string == "[1]":
 
 elif pred_string == "[2]":
     print("The student will Pass")
-
-# print("final pred", np.squeeze(prediction, -1))
-# st.write(f"Your student's result is: {np.squeeze(prediction, -1):.2f}")
-
-# st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
-# st.write(
-#     f"If you want to see more advanced applications you can follow me on [medium](https://medium.com/@gkeretchashvili)"
-# )
