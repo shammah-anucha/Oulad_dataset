@@ -5,11 +5,14 @@ import pandas as pd
 # # from sklearn.preprocessing import LabelEncoder
 import numpy as np
 
-# # import tensorflow as tf
-# # from tensorflow import keras
+import tensorflow as tf
+from tensorflow import keras
 
 data = pd.read_csv("/home/shammah/Downloads/full_set.csv")
 data = data.drop(columns=["sum_click"])
+
+# load model
+ann_model = tf.keras.models.load_model("best_model.h5")
 
 
 def new_inputs():
@@ -80,7 +83,7 @@ input_age_band = input("Please enter age_band: ")
 gender = np.unique(data["gender"])
 input_gender = input("Please enter gender: ")
 
-input_score = int(input("Please enter score: "))
+input_score = float(input("Please enter score: "))
 input_number_of_previous_attempts = int(
     input("Please enter number_of_previous_attempts: ")
 )
@@ -116,4 +119,43 @@ d.at[0, "score"] = input_score
 d.at[0, "studied_credits"] = input_studied_credits
 
 
-print(d)
+d = d.drop(
+    columns=[
+        "final_result_Distinction",
+        "final_result_Fail",
+        "final_result_Pass",
+        "sum_click",
+    ]
+)
+
+inputs = d
+
+prediction = ann_model.predict(inputs)
+pred = np.argmax(prediction, axis=1)
+print(pred)
+print(type(pred))
+# pred_string = pred.tostring()
+pred_string = np.array_str(pred)
+print(pred_string)
+print(type(pred_string))
+print(prediction)
+print(type(prediction))
+print(inputs)
+
+
+if pred_string == "[0]":
+    print("The student will have a Distinction")
+
+elif pred_string == "[1]":
+    print("The student will Fail")
+
+elif pred_string == "[2]":
+    print("The student will Pass")
+
+# print("final pred", np.squeeze(prediction, -1))
+# st.write(f"Your student's result is: {np.squeeze(prediction, -1):.2f}")
+
+# st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
+# st.write(
+#     f"If you want to see more advanced applications you can follow me on [medium](https://medium.com/@gkeretchashvili)"
+# )

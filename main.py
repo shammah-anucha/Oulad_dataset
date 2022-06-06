@@ -92,8 +92,20 @@ if st.button("Make Prediction"):
     inputs = d
 
     prediction = ann_model.predict(inputs)
-    print("final pred")
-    st.write(f"Your student's result is: ")
+
+    pred = np.argmax(prediction, axis=1)
+    pred_string = np.array_str(pred)
+
+    if pred_string == "[0]":
+        st.write("The student will have a Distinction")
+
+    elif pred_string == "[1]":
+        st.write("The student will Fail")
+
+    elif pred_string == "[2]":
+        st.write("The student will Pass")
+    # print("final pred", np.squeeze(prediction, -1))
+    # st.write(f"Your student's result is: {np.squeeze(prediction, -1):.2f}")
 
     st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     st.write(
