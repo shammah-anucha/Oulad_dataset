@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
+import seaborn as sn
 
 st.title("Hello world!")
 
@@ -11,14 +12,14 @@ if uploaded_file is not None:
 
     # Add some matplotlib code !
 
-    fig, ax = plt.subplots()
-    df.final_result.value_counts.hist(
-        bins=8,
-        grid=False,
-        figsize=(8, 8),
-        color="#86bf91",
-        zorder=2,
-        rwidth=0.9,
-        ax=ax,
+    fig = plt.figure(figsize=(10, 8))
+    sn.barplot(
+        x=df.final_result.value_counts().index,
+        y=df.final_result.value_counts(),
+        data=df,
+        color="grey",
     )
+    plt.title("Final Result Count", fontsize=20)
+    plt.show()
+
     st.write(fig)
