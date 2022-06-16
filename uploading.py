@@ -10,5 +10,5 @@ if uploaded_file is not None:
     st.write(df)
 
     # Add some matplotlib code !
-    fig, ax = df.final_result.value_counts().plot(kind="bar")
+    fig = df.final_result.value_counts().plot(kind="bar")
     st.write(fig)
