@@ -10,15 +10,5 @@ if uploaded_file is not None:
     st.write(df)
 
     # Add some matplotlib code !
-    fig, ax = plt.subplots()
-    df.hist(
-        bins=8,
-        column="final_result",
-        grid=False,
-        figsize=(8, 8),
-        color="#86bf91",
-        zorder=2,
-        rwidth=0.9,
-        ax=ax,
-    )
+    fig, ax = df.final_result.value_counts().plot(kind="bar")
     st.write(fig)
