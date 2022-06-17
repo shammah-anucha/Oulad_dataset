@@ -130,7 +130,7 @@ if st.button("Make Prediction"):
     frames = [df, result]
     full_set = pd.concat(frames)
 
-    st.write(full_set)
+    st.write(pred)
 
     # if pred_string == "[0]":
     #     st.write("The student will have a Distinction")
