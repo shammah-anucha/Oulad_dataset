@@ -142,15 +142,18 @@ if st.button("Make Prediction"):
 
         return st.write(fig)
 
-    fig_col1, fig_col2 = st.columns(2)
+    placeholder = st.empty()
 
-    with fig_col1:
-        predicted_result_count()
+    with placeholder.container():
+        fig_col1, fig_col2 = st.columns(2)
 
-    with fig_col2:
-        gender_results()
+        with fig_col1:
+            predicted_result_count()
+
+        with fig_col2:
+            gender_results()
 
     st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     st.write(
-        f"If you want to see more advanced applications you can contact me on [medium] https://www.linkedin.com/in/shammahanucha/"
+        f"If you want to see more advanced applications you can contact me on https://www.linkedin.com/in/shammahanucha/"
     )
