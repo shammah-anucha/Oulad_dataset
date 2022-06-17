@@ -155,7 +155,7 @@ if st.button("Make Prediction"):
         color="#910608",
     )
     plt.title("Predicted Final Results", fontsize=20)
-    ax.set_facecolor("#FF000000")
+    ax.set_facecolor("black")
     plt.show()
 
     st.write(fig)
