@@ -15,7 +15,7 @@ from sklearn.preprocessing import MinMaxScaler
 st.set_page_config(
     page_title="Student Prediction App",
     page_icon="✅",
-    layout="centered",
+    layout="wide",
 )
 
 st.header("Student Prediction App")
@@ -23,7 +23,6 @@ st.header("Student Prediction App")
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-    st.write(df)
 
     # load model
     ann_model = tf.keras.models.load_model("new_ann_model.h5")
@@ -76,7 +75,7 @@ if st.button("Make Prediction"):
             return "Withdrawn"
 
     full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
-    st.write(full_set)
+    # st.write(full_set)
 
     st.subheader("Visualizations")
 
@@ -87,7 +86,6 @@ if st.button("Make Prediction"):
             full_set,
             x=full_set.Prediction.value_counts().index,
             y=full_set.Prediction.value_counts(),
-            title="Predicted Final Results",
         )
         return st.write(fig)
 
@@ -142,10 +140,8 @@ if st.button("Make Prediction"):
             y="Count of Final_result",
             color="Gender",
             barmode="group",
-            height=400,
         )
         fig.show()
-        fig.update_layout(title_text="Comparing gender and final_result")
 
         return st.write(fig)
 
@@ -155,10 +151,15 @@ if st.button("Make Prediction"):
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
+            st.markdown("### Predicted Final Results")
             predicted_result_count()
 
         with fig_col2:
+            st.markdown("### Comparing gender and final_result")
             gender_results()
+
+    st.markdown("### Detailed Data View")
+    st.dataframe(full_set)
 
     st.write(f"Thank you! I hope you liked it.")
     st.write(
