@@ -145,18 +145,295 @@ if st.button("Make Prediction"):
 
         return st.write(fig)
 
+    def imd_results():
+        imd = sws_imd[["imd_band", "final_result"]]
+        passed_10 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "0-10%")].index
+        )
+        withdrawn_10 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "0-10%")].index
+        )
+        fail_10 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "0-10%")].index
+        )
+        distinction_10 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "0-10%")].index
+        )
+
+        passed_20 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "10-20%")].index
+        )
+        withdrawn_20 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "10-20%")].index
+        )
+        fail_20 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "10-20%")].index
+        )
+        distinction_20 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "10-20%")].index
+        )
+
+        passed_30 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "20-30%")].index
+        )
+        withdrawn_30 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "20-30%")].index
+        )
+        fail_30 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "20-30%")].index
+        )
+        distinction_30 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "20-30%")].index
+        )
+
+        passed_40 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "30-40%")].index
+        )
+        withdrawn_40 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "30-40%")].index
+        )
+        fail_40 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "30-40%")].index
+        )
+        distinction_40 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "30-40%")].index
+        )
+
+        passed_50 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "40-50%")].index
+        )
+        withdrawn_50 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "40-50%")].index
+        )
+        fail_50 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "40-50%")].index
+        )
+        distinction_50 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "40-50%")].index
+        )
+
+        passed_60 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "50-60%")].index
+        )
+        withdrawn_60 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "50-60%")].index
+        )
+        fail_60 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "50-60%")].index
+        )
+        distinction_60 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "50-60%")].index
+        )
+
+        passed_70 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "60-70%")].index
+        )
+        withdrawn_70 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "60-70%")].index
+        )
+        fail_70 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "60-70%")].index
+        )
+        distinction_70 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "60-70%")].index
+        )
+
+        passed_80 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "70-80%")].index
+        )
+        withdrawn_80 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "70-80%")].index
+        )
+        fail_80 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "70-80%")].index
+        )
+        distinction_80 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "70-80%")].index
+        )
+
+        passed_90 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "80-90%")].index
+        )
+        withdrawn_90 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "80-90%")].index
+        )
+        fail_90 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "80-90%")].index
+        )
+        distinction_90 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "80-90%")].index
+        )
+
+        passed_100 = len(
+            imd[(imd.final_result == "Pass") & (imd.imd_band == "90-100%")].index
+        )
+        withdrawn_100 = len(
+            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "90-100%")].index
+        )
+        fail_100 = len(
+            imd[(imd.final_result == "Fail") & (imd.imd_band == "90-100%")].index
+        )
+        distinction_100 = len(
+            imd[(imd.final_result == "Distinction") & (imd.imd_band == "90-100%")].index
+        )
+
+        imd_result = {
+            "Final_result": [
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+                "Pass",
+                "Withdrawn",
+                "Fail",
+                "Distinction",
+            ],
+            "Count of Final_result": [
+                passed_10,
+                withdrawn_10,
+                fail_10,
+                distinction_10,
+                passed_20,
+                withdrawn_20,
+                fail_20,
+                distinction_20,
+                passed_30,
+                withdrawn_30,
+                fail_30,
+                distinction_30,
+                passed_40,
+                withdrawn_40,
+                fail_40,
+                distinction_40,
+                passed_50,
+                withdrawn_50,
+                fail_50,
+                distinction_50,
+                passed_60,
+                withdrawn_60,
+                fail_60,
+                distinction_60,
+                passed_70,
+                withdrawn_70,
+                fail_70,
+                distinction_70,
+                passed_80,
+                withdrawn_80,
+                fail_80,
+                distinction_80,
+                passed_90,
+                withdrawn_90,
+                fail_90,
+                distinction_90,
+                passed_100,
+                withdrawn_100,
+                fail_100,
+                distinction_100,
+            ],
+            "imd_band": [
+                "0-10%",
+                "0-10%",
+                "0-10%",
+                "0-10%",
+                "10-20%",
+                "10-20%",
+                "10-20%",
+                "10-20%",
+                "20-30%",
+                "20-30%",
+                "20-30%",
+                "20-30%",
+                "30-40%",
+                "30-40%",
+                "30-40%",
+                "30-40%",
+                "40-50%",
+                "40-50%",
+                "40-50%",
+                "40-50%",
+                "50-60%",
+                "50-60%",
+                "50-60%",
+                "50-60%",
+                "60-70%",
+                "60-70%",
+                "60-70%",
+                "60-70%",
+                "70-80%",
+                "70-80%",
+                "70-80%",
+                "70-80%",
+                "80-90%",
+                "80-90%",
+                "80-90%",
+                "80-90%",
+                "90-100%",
+                "90-100%",
+                "90-100%",
+                "90-100%",
+            ],
+        }
+        imd_result = pd.DataFrame(imd_result)
+
+        fig = px.bar(
+            imd_result,
+            x="imd_band",
+            y="Count of Final_result",
+            color="Final_result",
+            barmode="group",
+        )
+        fig.show()
+
+        return st.write(fig)
+
     placeholder = st.empty()
 
     with placeholder.container():
-        fig_col1, fig_col2 = st.columns(2)
+        fig_col1, fig_col2, fig_col3 = st.columns(3)
 
         with fig_col1:
             st.markdown("###### Predicted Final Results")
             predicted_result_count()
 
         with fig_col2:
-            st.markdown("###### Comparing gender and final_result")
+            st.markdown("###### Comparing Gender and final_result")
             gender_results()
+
+        with fig_col3:
+            st.markdown("###### Comparing IMD Band and final_result")
+            imd_results()
 
     st.markdown("### Detailed Data View")
     st.dataframe(full_set)
