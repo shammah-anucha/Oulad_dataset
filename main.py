@@ -204,7 +204,7 @@ if st.button("Make Prediction"):
 
     # comparing gender and final_result
     # Set the figure size
-    figs = plt.figure(figsize=(8, 8))
+    figs = plt.figure(figsize=(8, 8), facecolor="#262730")
     # grouped barplot
     sn.barplot(
         x="Predicted Result",
@@ -212,6 +212,7 @@ if st.button("Make Prediction"):
         hue="Gender",
         data=gender_result,
         ci=None,
+        color="#F63366",
     )
     ax = plt.axes()
     ax.set_title("Comparing gender and final_result", fontsize=20, color="white")
