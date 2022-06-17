@@ -125,7 +125,7 @@ if st.button("Make Prediction"):
     # pred_string = np.array_str(pred)
     # st.write(pred_string)
 
-    result = pd.DataFrame(pred, columns=["Predictions"])
+    result = pd.DataFrame({"Predictions": pred})
 
     frames = [df, result]
     full_set = pd.concat(frames)
