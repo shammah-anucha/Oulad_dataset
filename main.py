@@ -151,9 +151,9 @@ if st.button("Make Prediction"):
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
         data=full_set,
-        color="red",
+        color="#730510",
     )
-    plt.title("Final Result Count", fontsize=20)
+    plt.title("Predicted Final Results", fontsize=20)
     plt.show()
 
     st.write(fig)
