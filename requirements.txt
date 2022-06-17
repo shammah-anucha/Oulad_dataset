@@ -7,4 +7,4 @@ seaborn==0.11.2
 matplotlib==3.5.2
 hyperopt==0.2.7
 tensorflow==2.9.1
-ploty==5.8.2
+plotly==5.8.2
