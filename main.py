@@ -151,11 +151,11 @@ if st.button("Make Prediction"):
         fig_col1, fig_col2 = st.columns(2)
 
         with fig_col1:
-            st.markdown("#### Predicted Final Results")
+            st.markdown("###### Predicted Final Results")
             predicted_result_count()
 
         with fig_col2:
-            st.markdown("#### Comparing gender and final_result")
+            st.markdown("###### Comparing gender and final_result")
             gender_results()
 
     st.markdown("### Detailed Data View")
