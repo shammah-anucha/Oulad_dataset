@@ -4,6 +4,7 @@ import numpy as np
 import seaborn as sn
 import matplotlib.pyplot as plt
 import plotly.express as px
+import plotly.graph_objects as go
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
@@ -149,13 +150,25 @@ if st.button("Make Prediction"):
     st.subheader("Visualizations")
     # fig = plt.figure(figsize=(10, 8), facecolor="#262730")
     # ax = plt.axes()
-    fig = px.bar(
-        full_set,
-        x=full_set.Prediction.value_counts().index,
-        y=full_set.Prediction.value_counts(),
-        title="Predicted Final Results"
-        # color="#F63366",
+    # fig = px.bar(
+    #     full_set,
+    #     x=full_set.Prediction.value_counts().index,
+    #     y=full_set.Prediction.value_counts(),
+    #     title="Predicted Final Results"
+    #     # color="#F63366",
+    #     marker_color = "crimson"
+    # )
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            full_set,
+            x=full_set.Prediction.value_counts().index,
+            y=full_set.Prediction.value_counts(),
+            marker_color="crimson",
+        )
     )
+    fig.update_layout(title_text="Predicted Final Results")
+
     # sn.barplot(
     #     x=full_set.Prediction.value_counts().index,
     #     y=full_set.Prediction.value_counts(),
