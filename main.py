@@ -1,18 +1,16 @@
+from PIL import Image
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sn
-import matplotlib.pyplot as plt
 import plotly.express as px
-import plotly.graph_objects as go
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
 
-
+im = Image.open("favicon.ico")
 st.set_page_config(
     page_title="Student Prediction App",
-    page_icon="✅",
+    page_icon=im,
     layout="wide",
 )
 
@@ -84,7 +82,6 @@ try:
                 return "Withdrawn"
 
         full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
-        # st.write(full_set)
 
         st.subheader("Visualizations")
 
@@ -471,5 +468,3 @@ try:
         )
 except NameError:
     st.write(f"Please Upload a CSV File!")
-
-# {st.session_state.name}
