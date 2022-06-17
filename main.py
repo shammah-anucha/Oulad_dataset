@@ -146,8 +146,7 @@ if st.button("Make Prediction"):
     st.write(full_set)
 
     st.subheader("Visualizations")
-    fig = plt.figure(figsize=(10, 8))
-    plt.axes.set_facecolor(color=None)
+    fig, ax = plt.figure(figsize=(10, 8))
     sn.barplot(
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
@@ -155,6 +154,7 @@ if st.button("Make Prediction"):
         color="#910608",
     )
     plt.title("Predicted Final Results", fontsize=20)
+    ax.set_facecolor("None")
     plt.show()
 
     st.write(fig)
