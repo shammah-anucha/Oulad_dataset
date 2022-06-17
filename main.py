@@ -146,135 +146,133 @@ if st.button("Make Prediction"):
         return st.write(fig)
 
     def imd_results():
-        imd = sws_imd[["imd_band", "final_result"]]
+        imd = full_set[["imd_band", "Prediction"]]
         passed_10 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "0-10%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "0-10%")].index
         )
         withdrawn_10 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "0-10%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "0-10%")].index
         )
-        fail_10 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "0-10%")].index
-        )
+        fail_10 = len(imd[(imd.Prediction == "Fail") & (imd.imd_band == "0-10%")].index)
         distinction_10 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "0-10%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "0-10%")].index
         )
 
         passed_20 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "10-20%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "10-20%")].index
         )
         withdrawn_20 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "10-20%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "10-20%")].index
         )
         fail_20 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "10-20%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "10-20%")].index
         )
         distinction_20 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "10-20%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "10-20%")].index
         )
 
         passed_30 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "20-30%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "20-30%")].index
         )
         withdrawn_30 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "20-30%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "20-30%")].index
         )
         fail_30 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "20-30%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "20-30%")].index
         )
         distinction_30 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "20-30%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "20-30%")].index
         )
 
         passed_40 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "30-40%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "30-40%")].index
         )
         withdrawn_40 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "30-40%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "30-40%")].index
         )
         fail_40 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "30-40%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "30-40%")].index
         )
         distinction_40 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "30-40%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "30-40%")].index
         )
 
         passed_50 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "40-50%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "40-50%")].index
         )
         withdrawn_50 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "40-50%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "40-50%")].index
         )
         fail_50 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "40-50%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "40-50%")].index
         )
         distinction_50 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "40-50%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "40-50%")].index
         )
 
         passed_60 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "50-60%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "50-60%")].index
         )
         withdrawn_60 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "50-60%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "50-60%")].index
         )
         fail_60 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "50-60%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "50-60%")].index
         )
         distinction_60 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "50-60%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "50-60%")].index
         )
 
         passed_70 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "60-70%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "60-70%")].index
         )
         withdrawn_70 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "60-70%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "60-70%")].index
         )
         fail_70 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "60-70%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "60-70%")].index
         )
         distinction_70 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "60-70%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "60-70%")].index
         )
 
         passed_80 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "70-80%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "70-80%")].index
         )
         withdrawn_80 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "70-80%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "70-80%")].index
         )
         fail_80 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "70-80%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "70-80%")].index
         )
         distinction_80 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "70-80%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "70-80%")].index
         )
 
         passed_90 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "80-90%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "80-90%")].index
         )
         withdrawn_90 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "80-90%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "80-90%")].index
         )
         fail_90 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "80-90%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "80-90%")].index
         )
         distinction_90 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "80-90%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "80-90%")].index
         )
 
         passed_100 = len(
-            imd[(imd.final_result == "Pass") & (imd.imd_band == "90-100%")].index
+            imd[(imd.Prediction == "Pass") & (imd.imd_band == "90-100%")].index
         )
         withdrawn_100 = len(
-            imd[(imd.final_result == "Withdrawn") & (imd.imd_band == "90-100%")].index
+            imd[(imd.Prediction == "Withdrawn") & (imd.imd_band == "90-100%")].index
         )
         fail_100 = len(
-            imd[(imd.final_result == "Fail") & (imd.imd_band == "90-100%")].index
+            imd[(imd.Prediction == "Fail") & (imd.imd_band == "90-100%")].index
         )
         distinction_100 = len(
-            imd[(imd.final_result == "Distinction") & (imd.imd_band == "90-100%")].index
+            imd[(imd.Prediction == "Distinction") & (imd.imd_band == "90-100%")].index
         )
 
         imd_result = {
