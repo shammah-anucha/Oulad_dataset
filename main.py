@@ -10,7 +10,6 @@ from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
 
 
-# st.header("Student Prediction App")
 # st.text_input("Enter your Name: ", key="name")
 
 st.set_page_config(
@@ -19,6 +18,7 @@ st.set_page_config(
     layout="wide",
 )
 
+st.header("Student Prediction App")
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
@@ -160,7 +160,9 @@ if st.button("Make Prediction"):
         with fig_col2:
             gender_results()
 
-    st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
+    st.write(f"Thank you! I hope you liked it.")
     st.write(
         f"If you want to see more advanced applications you can contact me on https://www.linkedin.com/in/shammahanucha/"
     )
+
+# {st.session_state.name}
