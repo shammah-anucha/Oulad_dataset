@@ -150,14 +150,14 @@ if st.button("Make Prediction"):
     st.subheader("Visualizations")
     # fig = plt.figure(figsize=(10, 8), facecolor="#262730")
     # ax = plt.axes()
-    # fig = px.bar(
-    #     full_set,
-    #     x=full_set.Prediction.value_counts().index,
-    #     y=full_set.Prediction.value_counts(),
-    #     title="Predicted Final Results"
-    #     # color="#F63366",
-    #     marker_color = "crimson"
-    # )
+    fig = px.bar(
+        full_set,
+        x=full_set.Prediction.value_counts().index,
+        y=full_set.Prediction.value_counts(),
+        title="Predicted Final Results"
+        # # color="#F63366",
+        # marker_color = "crimson"
+    )
     # fig = go.Figure()
     # fig.add_trace(
     #     go.Bar(
@@ -169,16 +169,16 @@ if st.button("Make Prediction"):
     # )
     # fig.update_layout(title_text="Predicted Final Results")
 
-    fig = go.Figure(
-        data=[
-            go.Bar(
-                x=full_set.Prediction.value_counts().index,
-                y=full_set.Prediction.value_counts(),
-                marker_color="#F63366",  # marker color can be a single color value or an iterable
-            )
-        ]
-    )
-    fig.update_layout(title_text="Predicted Final Results")
+    # fig = go.Figure(
+    #     data=[
+    #         go.Bar(
+    #             x=full_set.Prediction.value_counts().index,
+    #             y=full_set.Prediction.value_counts(),
+    #             marker_color="#F63366",  # marker color can be a single color value or an iterable
+    #         )
+    #     ]
+    # )
+    # fig.update_layout(title_text="Predicted Final Results")
     # sn.barplot(
     #     x=full_set.Prediction.value_counts().index,
     #     y=full_set.Prediction.value_counts(),
