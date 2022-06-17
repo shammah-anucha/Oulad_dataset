@@ -130,6 +130,17 @@ if st.button("Make Prediction"):
     frames = [df, result]
     full_set = pd.concat(frames, axis=1)
 
+    def categorise(row):
+        if row.Prediction == 0:
+            return "Distinction"
+        elif row.Prediction == 1:
+            return "Fail"
+        elif row.Prediction == 2:
+            return "Pass"
+        elif row.Prediction == 3:
+            return "Withdrawn"
+
+    full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
     st.write(full_set)
 
     # if pred_string == "[0]":
