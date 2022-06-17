@@ -146,7 +146,8 @@ if st.button("Make Prediction"):
     st.write(full_set)
 
     st.subheader("Visualizations")
-    fig, ax = plt.figure(figsize=(10, 8))
+    fig = plt.figure(figsize=(10, 8))
+    ax = plt.axes()
     sn.barplot(
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
