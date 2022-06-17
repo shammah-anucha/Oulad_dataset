@@ -147,9 +147,9 @@ if st.button("Make Prediction"):
     st.write(full_set)
 
     st.subheader("Visualizations")
-    fig = plt.figure(figsize=(10, 8), facecolor="#262730")
-    ax = plt.axes()
-    px.bar(
+    # fig = plt.figure(figsize=(10, 8), facecolor="#262730")
+    # ax = plt.axes()
+    fig = px.bar(
         full_set,
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
@@ -161,12 +161,12 @@ if st.button("Make Prediction"):
     #     data=full_set,
     #     color="#F63366",
     # )
-    ax.set_title("Predicted Final Results", fontsize=20, color="white")
-    ax.set_facecolor("#262730")
-    ax.tick_params(axis="x", colors="white")
-    ax.tick_params(axis="y", colors="white")
-    ax.spines[["left", "top", "right", "bottom"]].set_color("white")
-    plt.show()
+    # ax.set_title("Predicted Final Results", fontsize=20, color="white")
+    # ax.set_facecolor("#262730")
+    # ax.tick_params(axis="x", colors="white")
+    # ax.tick_params(axis="y", colors="white")
+    # ax.spines[["left", "top", "right", "bottom"]].set_color("white")
+    # plt.show()
 
     st.write(fig)
     # # comparing gender and Predicted final_result
