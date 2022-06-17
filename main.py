@@ -147,6 +147,7 @@ if st.button("Make Prediction"):
 
     st.subheader("Visualizations")
     fig = plt.figure(figsize=(10, 8))
+    plt.axes.set_facecolor(color=None)
     sn.barplot(
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
