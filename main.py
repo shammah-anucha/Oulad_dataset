@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sn
+import matplotlib as plt
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
@@ -143,17 +145,18 @@ if st.button("Make Prediction"):
     full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
     st.write(full_set)
 
-    # if pred_string == "[0]":
-    #     st.write("The student will have a Distinction")
+    st.subheader("Visualizations")
+    fig = plt.figure(figsize=(10, 8))
+    sn.barplot(
+        x=full_set.Prediction.value_counts().index,
+        y=full_set.Prediction.value_counts(),
+        data=full_set,
+        color="red",
+    )
+    plt.title("Final Result Count", fontsize=20)
+    plt.show()
 
-    # elif pred_string == "[1]":
-    #     st.write("The student will Fail")
-
-    # elif pred_string == "[2]":
-    #     st.write("The student will Pass")
-
-    # elif pred_string == "[3]":
-    #     st.write("The student will be Withdrawn")
+    st.write(fig)
 
     # st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     # st.write(
