@@ -153,12 +153,11 @@ if st.button("Make Prediction"):
         y=full_set.Prediction.value_counts(),
         data=full_set,
         color="#F63366",
-        annot_kws =
     )
     plt.title("Predicted Final Results", fontsize=20)
     ax.set_facecolor("#262730")
-    ax.tick_params(axis='x', colors='white')    
-    ax.tick_params(axis='y', colors='white')
+    ax.tick_params(axis="x", colors="white")
+    ax.tick_params(axis="y", colors="white")
     plt.show()
 
     st.write(fig)
