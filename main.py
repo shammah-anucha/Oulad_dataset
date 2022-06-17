@@ -10,8 +10,15 @@ from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
 
 
-st.header("Student Prediction App")
-st.text_input("Enter your Name: ", key="name")
+# st.header("Student Prediction App")
+# st.text_input("Enter your Name: ", key="name")
+
+st.set_page_config(
+    page_title="Student Prediction App",
+    page_icon="✅",
+    layout="wide",
+)
+
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
