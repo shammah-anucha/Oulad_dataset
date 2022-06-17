@@ -174,7 +174,7 @@ if st.button("Make Prediction"):
             go.Bar(
                 x=full_set.Prediction.value_counts().index,
                 y=full_set.Prediction.value_counts(),
-                marker_color="crimson",  # marker color can be a single color value or an iterable
+                marker_color="#F63366",  # marker color can be a single color value or an iterable
             )
         ]
     )
