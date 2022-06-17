@@ -18,30 +18,30 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.write(df)
 
-# load model
-ann_model = tf.keras.models.load_model("new_ann_model.h5")
+    # load model
+    ann_model = tf.keras.models.load_model("new_ann_model.h5")
 
-# Data Encoding
-sws_enc = pd.get_dummies(
-    df,
-    columns=[
-        "code_module",
-        "region",
-        "highest_education",
-        "imd_band",
-        "age_band",
-        "disability",
-        "gender",
-        "code_presentation",
-    ],
-)
-filtered = sws_enc.drop(columns=["id_student", "disability_N", "gender_F"])
+    # Data Encoding
+    sws_enc = pd.get_dummies(
+        df,
+        columns=[
+            "code_module",
+            "region",
+            "highest_education",
+            "imd_band",
+            "age_band",
+            "disability",
+            "gender",
+            "code_presentation",
+        ],
+    )
+    filtered = sws_enc.drop(columns=["id_student", "disability_N", "gender_F"])
 
-# Normalization
-scaler = MinMaxScaler()
-filtered_norm = filtered.copy()
-cols_to_scale = ["num_of_prev_attempts", "studied_credits", "score_100"]
-filtered_norm[cols_to_scale] = scaler.fit_transform(filtered_norm[cols_to_scale])
+    # Normalization
+    scaler = MinMaxScaler()
+    filtered_norm = filtered.copy()
+    cols_to_scale = ["num_of_prev_attempts", "studied_credits", "score_100"]
+    filtered_norm[cols_to_scale] = scaler.fit_transform(filtered_norm[cols_to_scale])
 
 
 if st.button("Make Prediction"):
