@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sn
 import matplotlib.pyplot as plt
+import plotly.express as px
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
@@ -148,12 +149,18 @@ if st.button("Make Prediction"):
     st.subheader("Visualizations")
     fig = plt.figure(figsize=(10, 8), facecolor="#262730")
     ax = plt.axes()
-    sn.barplot(
+    px.bar(
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
         data=full_set,
         color="#F63366",
     )
+    # sn.barplot(
+    #     x=full_set.Prediction.value_counts().index,
+    #     y=full_set.Prediction.value_counts(),
+    #     data=full_set,
+    #     color="#F63366",
+    # )
     ax.set_title("Predicted Final Results", fontsize=20, color="white")
     ax.set_facecolor("#262730")
     ax.tick_params(axis="x", colors="white")
@@ -162,72 +169,72 @@ if st.button("Make Prediction"):
     plt.show()
 
     st.write(fig)
-    # comparing gender and Predicted final_result
-    def gender_results():
-        gen = full_set[["Prediction", "gender"]]
-        passed_m = len(gen[(gen.Prediction == "Pass") & (gen.gender == "M")].index)
-        passed_f = len(gen[(gen.Prediction == "Pass") & (gen.gender == "F")].index)
-        withdrawn_m = len(
-            gen[(gen.Prediction == "Withdrawn") & (gen.gender == "M")].index
-        )
-        withdrawn_f = len(
-            gen[(gen.Prediction == "Withdrawn") & (gen.gender == "F")].index
-        )
-        fail_m = len(gen[(gen.Prediction == "Fail") & (gen.gender == "M")].index)
-        fail_f = len(gen[(gen.Prediction == "Fail") & (gen.gender == "F")].index)
-        distinction_m = len(
-            gen[(gen.Prediction == "Distinction") & (gen.gender == "M")].index
-        )
-        distinction_f = len(
-            gen[(gen.Prediction == "Distinction") & (gen.gender == "F")].index
-        )
-        gender_result = {
-            "Predicted Result": [
-                "Pass",
-                "Pass",
-                "Withdrawn",
-                "Withdrawn",
-                "Fail",
-                "Fail",
-                "Distinction",
-                "Distinction",
-            ],
-            "Count of Final_result": [
-                passed_m,
-                passed_f,
-                withdrawn_m,
-                withdrawn_f,
-                fail_m,
-                fail_f,
-                distinction_m,
-                distinction_f,
-            ],
-            "Gender": ["M", "F", "M", "F", "M", "F", "M", "F"],
-        }
-        gender_result = pd.DataFrame(gender_result)
+    # # comparing gender and Predicted final_result
+    # def gender_results():
+    #     gen = full_set[["Prediction", "gender"]]
+    #     passed_m = len(gen[(gen.Prediction == "Pass") & (gen.gender == "M")].index)
+    #     passed_f = len(gen[(gen.Prediction == "Pass") & (gen.gender == "F")].index)
+    #     withdrawn_m = len(
+    #         gen[(gen.Prediction == "Withdrawn") & (gen.gender == "M")].index
+    #     )
+    #     withdrawn_f = len(
+    #         gen[(gen.Prediction == "Withdrawn") & (gen.gender == "F")].index
+    #     )
+    #     fail_m = len(gen[(gen.Prediction == "Fail") & (gen.gender == "M")].index)
+    #     fail_f = len(gen[(gen.Prediction == "Fail") & (gen.gender == "F")].index)
+    #     distinction_m = len(
+    #         gen[(gen.Prediction == "Distinction") & (gen.gender == "M")].index
+    #     )
+    #     distinction_f = len(
+    #         gen[(gen.Prediction == "Distinction") & (gen.gender == "F")].index
+    #     )
+    #     gender_result = {
+    #         "Predicted Result": [
+    #             "Pass",
+    #             "Pass",
+    #             "Withdrawn",
+    #             "Withdrawn",
+    #             "Fail",
+    #             "Fail",
+    #             "Distinction",
+    #             "Distinction",
+    #         ],
+    #         "Count of Final_result": [
+    #             passed_m,
+    #             passed_f,
+    #             withdrawn_m,
+    #             withdrawn_f,
+    #             fail_m,
+    #             fail_f,
+    #             distinction_m,
+    #             distinction_f,
+    #         ],
+    #         "Gender": ["M", "F", "M", "F", "M", "F", "M", "F"],
+    #     }
+    #     gender_result = pd.DataFrame(gender_result)
 
-        # comparing gender and final_result
-        # Set the figure size
-        figs = plt.figure(figsize=(8, 8), facecolor="#262730")
-        # grouped barplot
-        sn.barplot(
-            x="Predicted Result",
-            y="Count of Final_result",
-            hue="Gender",
-            data=gender_result,
-            color="#F63366",
-        )
-        # ax1 = plt.axes()
-        # ax1.set_title("Comparing gender and final_result", fontsize=20, color="white")
-        ax.set_facecolor("#262730")
-        # ax1.tick_params(axis="x", colors="white")
-        # ax1.tick_params(axis="y", colors="white")
-        # ax1.spines[["left", "top", "right", "bottom"]].set_color("white")
-        plt.show()
+    #     # comparing gender and final_result
+    #     # Set the figure size
+    #     figs = plt.figure(figsize=(8, 8), facecolor="#262730")
+    #     # grouped barplot
+    #     sn.barplot(
+    #         x="Predicted Result",
+    #         y="Count of Final_result",
+    #         hue="Gender",
+    #         data=gender_result,
+    #         color="#F63366",
+    #     )
+    #     # ax1 = plt.axes()
+    #     # ax1.set_title("Comparing gender and final_result", fontsize=20, color="white")
+    #     ax.set_facecolor("#262730")
+    #     # ax1.tick_params(axis="x", colors="white")
+    #     # ax1.tick_params(axis="y", colors="white")
+    #     # ax1.spines[["left", "top", "right", "bottom"]].set_color("white")
+    #     plt.show()
 
-        return st.write(figs)
+    #     return st.write(figs)
 
-    gender_results()
+    # gender_results()
 
     # st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     # st.write(
