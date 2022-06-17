@@ -158,14 +158,69 @@ if st.button("Make Prediction"):
     ax.set_facecolor("#262730")
     ax.tick_params(axis="x", colors="white")
     ax.tick_params(axis="y", colors="white")
-    ax.spines[["left", "top", "right", "bottom"]].set_color(
-        "white"
-    )  # setting up Y-axis tick color to white
-    # ax.spines["top"].set_color("white")
-    # ax.spines["top"].set_color("white")
+    ax.spines[["left", "top", "right", "bottom"]].set_color("white")
     plt.show()
 
     st.write(fig)
+    # comparing gender and Predicted final_result
+
+    gen = full_set[["Prediction", "gender"]]
+    passed_m = len(gen[(gen.final_result == "Pass") & (gen.gender == "M")].index)
+    passed_f = len(gen[(gen.final_result == "Pass") & (gen.gender == "F")].index)
+    withdrawn_m = len(
+        gen[(gen.final_result == "Withdrawn") & (gen.gender == "M")].index
+    )
+    withdrawn_f = len(
+        gen[(gen.final_result == "Withdrawn") & (gen.gender == "F")].index
+    )
+    fail_m = len(gen[(gen.final_result == "Fail") & (gen.gender == "M")].index)
+    fail_f = len(gen[(gen.final_result == "Fail") & (gen.gender == "F")].index)
+    distinction_m = len(
+        gen[(gen.final_result == "Distinction") & (gen.gender == "M")].index
+    )
+    distinction_f = len(
+        gen[(gen.final_result == "Distinction") & (gen.gender == "F")].index
+    )
+    gender_result = {
+        "Predicted Result": [
+            "Pass",
+            "Pass",
+            "Withdrawn",
+            "Withdrawn",
+            "Fail",
+            "Fail",
+            "Distinction",
+            "Distinction",
+        ],
+        "Count of Final_result": [
+            passed_m,
+            passed_f,
+            withdrawn_m,
+            withdrawn_f,
+            fail_m,
+            fail_f,
+            distinction_m,
+            distinction_f,
+        ],
+        "Gender": ["M", "F", "M", "F", "M", "F", "M", "F"],
+    }
+    gender_result = pd.DataFrame(gender_result)
+
+    # comparing gender and final_result
+    # Set the figure size
+    figs = plt.figure(figsize=(8, 8))
+    # grouped barplot
+    sn.barplot(
+        x="Predicted_result",
+        y="Count of Final_result",
+        hue="Gender",
+        data=gender_result,
+        ci=None,
+    )
+    plt.title("Comparing gender and final_result", fontsize=20)
+    plt.show()
+
+    st.write(figs)
 
     # st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     # st.write(
