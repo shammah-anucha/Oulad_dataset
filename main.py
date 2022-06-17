@@ -207,7 +207,7 @@ if st.button("Make Prediction"):
     figs = plt.figure(figsize=(8, 8))
     # grouped barplot
     sn.barplot(
-        x="Predicted_result",
+        x="Predicted Result",
         y="Count of Final_result",
         hue="Gender",
         data=gender_result,
