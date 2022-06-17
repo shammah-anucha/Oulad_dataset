@@ -165,21 +165,17 @@ if st.button("Make Prediction"):
     # comparing gender and Predicted final_result
 
     gen = full_set[["Prediction", "gender"]]
-    passed_m = len(gen[(gen.final_result == "Pass") & (gen.gender == "M")].index)
-    passed_f = len(gen[(gen.final_result == "Pass") & (gen.gender == "F")].index)
-    withdrawn_m = len(
-        gen[(gen.final_result == "Withdrawn") & (gen.gender == "M")].index
-    )
-    withdrawn_f = len(
-        gen[(gen.final_result == "Withdrawn") & (gen.gender == "F")].index
-    )
-    fail_m = len(gen[(gen.final_result == "Fail") & (gen.gender == "M")].index)
-    fail_f = len(gen[(gen.final_result == "Fail") & (gen.gender == "F")].index)
+    passed_m = len(gen[(gen.Prediction == "Pass") & (gen.gender == "M")].index)
+    passed_f = len(gen[(gen.Prediction == "Pass") & (gen.gender == "F")].index)
+    withdrawn_m = len(gen[(gen.Prediction == "Withdrawn") & (gen.gender == "M")].index)
+    withdrawn_f = len(gen[(gen.Prediction == "Withdrawn") & (gen.gender == "F")].index)
+    fail_m = len(gen[(gen.Prediction == "Fail") & (gen.gender == "M")].index)
+    fail_f = len(gen[(gen.Prediction == "Fail") & (gen.gender == "F")].index)
     distinction_m = len(
-        gen[(gen.final_result == "Distinction") & (gen.gender == "M")].index
+        gen[(gen.Prediction == "Distinction") & (gen.gender == "M")].index
     )
     distinction_f = len(
-        gen[(gen.final_result == "Distinction") & (gen.gender == "F")].index
+        gen[(gen.Prediction == "Distinction") & (gen.gender == "F")].index
     )
     gender_result = {
         "Predicted Result": [
