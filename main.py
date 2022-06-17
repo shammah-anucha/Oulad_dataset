@@ -158,17 +158,28 @@ if st.button("Make Prediction"):
     #     # color="#F63366",
     #     marker_color = "crimson"
     # )
-    fig = go.Figure()
-    fig.add_trace(
-        go.Bar(
-            full_set,
-            x=full_set.Prediction.value_counts().index,
-            y=full_set.Prediction.value_counts(),
-            marker_color="crimson",
-        )
+    # fig = go.Figure()
+    # fig.add_trace(
+    #     go.Bar(
+    #         full_set,
+    #         x=full_set.Prediction.value_counts().index,
+    #         y=full_set.Prediction.value_counts(),
+    #         marker_color="crimson",
+    #     )
+    # )
+    # fig.update_layout(title_text="Predicted Final Results")
+
+    fig = go.Figure(
+        data=[
+            go.Bar(
+                full_set,
+                x=full_set.Prediction.value_counts().index,
+                y=full_set.Prediction.value_counts(),
+                marker_color="crimson",  # marker color can be a single color value or an iterable
+            )
+        ]
     )
     fig.update_layout(title_text="Predicted Final Results")
-
     # sn.barplot(
     #     x=full_set.Prediction.value_counts().index,
     #     y=full_set.Prediction.value_counts(),
