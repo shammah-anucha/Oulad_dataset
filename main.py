@@ -150,9 +150,9 @@ if st.button("Make Prediction"):
     fig = plt.figure(figsize=(10, 8), facecolor="#262730")
     ax = plt.axes()
     px.bar(
+        full_set,
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
-        data=full_set,
         color="#F63366",
     )
     # sn.barplot(
