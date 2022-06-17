@@ -15,7 +15,7 @@ from sklearn.preprocessing import MinMaxScaler
 st.set_page_config(
     page_title="Student Prediction App",
     page_icon="✅",
-    layout="wide",
+    layout="centered",
 )
 
 st.header("Student Prediction App")
