@@ -123,13 +123,14 @@ if st.button("Make Prediction"):
 
     pred = np.argmax(prediction, axis=1)
     pred_string = np.array_str(pred)
+    st.write(pred_string)
 
-    result = pd.DataFrame(pred_string)
+    # result = pd.DataFrame(pred_string)
 
-    frames = [df, result]
-    full_set = pd.concat(frames)
+    # frames = [df, result]
+    # full_set = pd.concat(frames)
 
-    st.write(full_set)
+    # st.write(full_set)
 
     # if pred_string == "[0]":
     #     st.write("The student will have a Distinction")
