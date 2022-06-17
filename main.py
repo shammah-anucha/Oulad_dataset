@@ -84,8 +84,6 @@ if st.button("Make Prediction"):
         )
         return st.write(fig)
 
-    predicted_result_count()
-
     # comparing gender and Predicted final_result
 
     def gender_results():
@@ -144,7 +142,13 @@ if st.button("Make Prediction"):
 
         return st.write(fig)
 
-    gender_results()
+    fig_col1, fig_col2 = st.columns(2)
+
+    with fig_col1:
+        predicted_result_count()
+
+    with fig_col2:
+        gender_results()
 
     st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     st.write(
