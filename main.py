@@ -128,7 +128,7 @@ if st.button("Make Prediction"):
     result = pd.DataFrame(pred_string, columns=["Prediction"])
 
     frames = [df, result]
-    full_set = pd.concat(frames)
+    full_set = pd.concat(frames, axis=1)
 
     st.write(full_set)
 
