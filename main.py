@@ -153,6 +153,7 @@ if st.button("Make Prediction"):
         full_set,
         x=full_set.Prediction.value_counts().index,
         y=full_set.Prediction.value_counts(),
+        title="Predicted Final Results"
         # color="#F63366",
     )
     # sn.barplot(
