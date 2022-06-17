@@ -224,10 +224,11 @@ if st.button("Make Prediction"):
         ax1.tick_params(axis="x", colors="white")
         ax1.tick_params(axis="y", colors="white")
         ax1.spines[["left", "top", "right", "bottom"]].set_color("white")
+        plt.show()
 
-        return plt.show()
+        return st.write(figs)
 
-    st.write(gender_results())
+    gender_results()
 
     # st.write(f"Thank you {st.session_state.name}! I hope you liked it.")
     # st.write(
