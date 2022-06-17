@@ -1,3 +1,4 @@
+from turtle import color
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -154,10 +155,12 @@ if st.button("Make Prediction"):
         data=full_set,
         color="#F63366",
     )
-    plt.title("Predicted Final Results", fontsize=20)
+    plt.title("Predicted Final Results", fontsize=20, color="white")
     ax.set_facecolor("#262730")
     ax.tick_params(axis="x", colors="white")
     ax.tick_params(axis="y", colors="white")
+    ax.spines["left"].set_color("white")  # setting up Y-axis tick color to white
+    ax.spines["top"].set_color("white")
     plt.show()
 
     st.write(fig)
