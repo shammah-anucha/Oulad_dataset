@@ -16,11 +16,11 @@ if uploaded_file is not None:
     st.write(df)
 
 
-data4 = pd.read_csv(
-    "https://raw.githubusercontent.com/shammah-anucha/Oulad_dataset/main/testing_header.csv?token=GHSAT0AAAAAABTRCNKPDGX5ZSVPNYSDB5AUYVMET5Q"
-)
-feature_list = data4.columns
-d = pd.DataFrame(0, index=[0], columns=feature_list)
+# data4 = pd.read_csv(
+#     "https://raw.githubusercontent.com/shammah-anucha/Oulad_dataset/main/testing_header.csv?token=GHSAT0AAAAAABTRCNKPDGX5ZSVPNYSDB5AUYVMET5Q"
+# )
+# feature_list = data4.columns
+# d = pd.DataFrame(0, index=[0], columns=feature_list)
 
 
 # load model
