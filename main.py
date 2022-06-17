@@ -158,7 +158,7 @@ if st.button("Make Prediction"):
     ax.set_facecolor("#262730")
     ax.tick_params(axis="x", colors="white")
     ax.tick_params(axis="y", colors="white")
-    ax.spines["left", "top", "right", "bottom"].set_color(
+    ax.spines[["left", "top", "right", "bottom"]].set_color(
         "white"
     )  # setting up Y-axis tick color to white
     # ax.spines["top"].set_color("white")
