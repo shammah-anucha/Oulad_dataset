@@ -215,15 +215,14 @@ if st.button("Make Prediction"):
             y="Count of Final_result",
             hue="Gender",
             data=gender_result,
-            ci=None,
             color="#F63366",
         )
-        ax1 = plt.axes()
-        ax1.set_title("Comparing gender and final_result", fontsize=20, color="white")
-        ax1.set_facecolor("#262730")
-        ax1.tick_params(axis="x", colors="white")
-        ax1.tick_params(axis="y", colors="white")
-        ax1.spines[["left", "top", "right", "bottom"]].set_color("white")
+        # ax1 = plt.axes()
+        # ax1.set_title("Comparing gender and final_result", fontsize=20, color="white")
+        # ax1.set_facecolor("#262730")
+        # ax1.tick_params(axis="x", colors="white")
+        # ax1.tick_params(axis="y", colors="white")
+        # ax1.spines[["left", "top", "right", "bottom"]].set_color("white")
         plt.show()
 
         return st.write(figs)
