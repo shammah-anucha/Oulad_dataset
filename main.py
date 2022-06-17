@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sn
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow import keras
 from sklearn.preprocessing import MinMaxScaler
