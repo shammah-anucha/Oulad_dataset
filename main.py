@@ -447,7 +447,7 @@ try:
         placeholder = st.empty()
 
         with placeholder.container():
-            fig_col1, fig_col2, fig_col3 = st.columns((2, 1, 1))
+            fig_col1, fig_col2 = st.columns((2, 2))
 
             with fig_col1:
                 st.markdown("###### Predicted Final Results")
@@ -457,9 +457,8 @@ try:
                 st.markdown("###### Comparing Gender and final_result")
                 gender_results()
 
-            with fig_col3:
-                st.markdown("###### Comparing IMD Band and final_result")
-                imd_results()
+        st.markdown("###### Comparing IMD Band and final_result")
+        imd_results()
 
         st.markdown("### Detailed Data View")
         st.dataframe(full_set)
