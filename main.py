@@ -468,3 +468,7 @@ try:
         )
 except NameError:
     st.write(f"Please Upload a CSV File!")
+except UnicodeDecodeError:
+    st.write(f"Please Upload a CSV File!")
+except:
+    st.write(f"Please Upload a CSV File!")
