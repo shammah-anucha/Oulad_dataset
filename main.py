@@ -54,6 +54,8 @@ try:
         )
 except KeyError:
     st.write(f"Headers should include {feature_list}")
+except UnicodeDecodeError:
+    st.write(f"Please Upload a CSV File!")
 
 try:
 
@@ -467,8 +469,6 @@ try:
             f"If you want to see more advanced applications you can contact me on https://www.linkedin.com/in/shammahanucha/"
         )
 except NameError:
-    st.write(f"Please Upload a CSV File!")
-except UnicodeDecodeError:
     st.write(f"Please Upload a CSV File!")
 except:
     st.write(f"Please Upload a CSV File!")
