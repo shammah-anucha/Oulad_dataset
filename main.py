@@ -447,7 +447,7 @@ try:
         placeholder = st.empty()
 
         with placeholder.container():
-            fig_col1, fig_col2, fig_col3 = st.columns(3)
+            fig_col1, fig_col2, fig_col3 = st.columns((2, 1, 1))
 
             with fig_col1:
                 st.markdown("###### Predicted Final Results")
