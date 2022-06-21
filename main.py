@@ -26,7 +26,7 @@ target_data = pd.read_csv(
 )
 
 st.header("Student Prediction App")
-st.text(
+st.write(
     "This application is run by a Machine learning model that predicts the final results of students."
     "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data"
     "can be accessed by clicking the 'Download Test Data' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed."
@@ -510,5 +510,5 @@ try:
         )
 except NameError:
     st.warning(f"Please Upload a CSV File!")
-except:
-    st.warning(f"Please Upload a CSV File!")
+# except:
+#     st.warning(f"Please Upload a CSV File!")
