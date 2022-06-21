@@ -2,6 +2,8 @@ from PIL import Image
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sn
+import matplotlib.pyplot as plt
 import plotly.express as px
 import tensorflow as tf
 from tensorflow import keras
@@ -11,7 +13,7 @@ im = Image.open("favicon.ico")
 st.set_page_config(
     page_title="Student Prediction App",
     page_icon=im,
-    layout="wide",
+    layout="centered",
 )
 
 data = pd.read_csv(
@@ -19,7 +21,17 @@ data = pd.read_csv(
 )
 feature_list = data.columns
 
+target_data = pd.read_csv(
+    "https://raw.githubusercontent.com/shammah-anucha/Dataset/main/target%20data.csv"
+)
+
 st.header("Student Prediction App")
+st.text(
+    "This application is run by a Machine learning model that predicts the final results of students."
+    "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data"
+    "can be accessed by clicking the 'Download Test Data' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed."
+    "Three bar charts are plotted to show the predicted classes againsts some selected features. And finally a dataframe of the entire test data with the predicted classes is displayed"
+)
 
 try:
     uploaded_file = st.file_uploader("Choose a file")
@@ -53,9 +65,9 @@ try:
             filtered_norm[cols_to_scale]
         )
 except KeyError:
-    st.write(f"Headers should include {feature_list}")
+    st.warning(f"Headers should include {feature_list}")
 except UnicodeDecodeError:
-    st.write(f"Please Upload a CSV File!")
+    st.warning(f"Please Upload a CSV File!")
 
 try:
 
@@ -86,6 +98,36 @@ try:
         full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
 
         st.subheader("Visualizations")
+
+        # Confusion Matrix
+
+        def categorise2(row):
+            if row.final_result == 0:
+                return "Distinction"
+            elif row.final_result == 1:
+                return "Fail"
+            elif row.final_result == 2:
+                return "Pass"
+            elif row.final_result == 3:
+                return "Withdrawn"
+
+        target_data["final_result"] = full_set.apply(
+            lambda row: categorise2(row), axis=1
+        )
+
+        def confusion_matrix_plot():
+            cm = tf.math.confusion_matrix(
+                labels=target_data.final_result, predictions=result.Prediction
+            )
+
+            plt.figure(figsize=(10, 7))
+            sn.heatmap(cm, annot=True, fmt="d")
+            plt.xlabel("Predicted")
+            plt.ylabel("Truth")
+
+            return
+
+        st.write(confusion_matrix_plot())
 
         # Count of Predicted classes
 
@@ -440,7 +482,6 @@ try:
                 color="Final_result",
                 barmode="group",
             )
-            fig.show()
 
             return st.write(fig)
 
@@ -468,6 +509,6 @@ try:
             f"If you want to see more advanced applications you can contact me on https://www.linkedin.com/in/shammahanucha/"
         )
 except NameError:
-    st.write(f"Please Upload a CSV File!")
+    st.warning(f"Please Upload a CSV File!")
 except:
-    st.write(f"Please Upload a CSV File!")
+    st.warning(f"Please Upload a CSV File!")
