@@ -102,14 +102,14 @@ try:
         # Confusion Matrix
 
         def categorise2(row):
-            if row.final_result == 0:
-                return "Distinction"
-            elif row.final_result == 1:
-                return "Fail"
-            elif row.final_result == 2:
-                return "Pass"
-            elif row.final_result == 3:
-                return "Withdrawn"
+            if row.final_result == "Distinction":
+                return 0
+            elif row.final_result == "Fail":
+                return 1
+            elif row.final_result == "Pass":
+                return 2
+            elif row.final_result == "Withdrawn":
+                return 3
 
         target_data["final_result"] = full_set.apply(
             lambda row: categorise2(row), axis=1
@@ -117,7 +117,7 @@ try:
 
         def confusion_matrix_plot():
             cm = tf.math.confusion_matrix(
-                labels=target_data.final_result, predictions=result.Prediction
+                labels=target_data.final_result, predictions=pred
             )
 
             plt.figure(figsize=(10, 7))
