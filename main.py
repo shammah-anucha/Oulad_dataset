@@ -33,7 +33,7 @@ st.write(
     "Three bar charts are plotted to show the predicted classes againsts some selected features. And finally a dataframe of the entire test data with the predicted classes is displayed"
 )
 
-with open("testing_data.csv") as f:
+with open("testing data.csv") as f:
     st.download_button("Download CSV", f)
 # st.download_button("Download CSV", target_data)
 
