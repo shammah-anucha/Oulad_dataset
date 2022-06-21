@@ -34,7 +34,7 @@ st.write(
 )
 
 
-st.download_button("Download CSV", target_data, "target_data/csv")
+st.download_button("Download CSV", target_data)
 
 try:
     uploaded_file = st.file_uploader("Choose a file")
