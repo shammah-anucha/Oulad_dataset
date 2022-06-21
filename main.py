@@ -111,7 +111,7 @@ try:
             elif row.final_result == "Withdrawn":
                 return 3
 
-        target_data["final_result"] = full_set.apply(
+        target_data["final_result"] = target_data.apply(
             lambda row: categorise2(row), axis=1
         )
 
