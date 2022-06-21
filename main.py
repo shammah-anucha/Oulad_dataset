@@ -125,7 +125,9 @@ try:
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
 
-            return plt.show
+            plt.show
+
+            return
 
         st.write(confusion_matrix_plot())
 
