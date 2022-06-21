@@ -120,16 +120,12 @@ try:
                 labels=target_data.final_result, predictions=pred
             )
 
-            plt.figure(figsize=(10, 7))
+            fig = plt.figure(figsize=(10, 7))
             sn.heatmap(cm, annot=True, fmt="d")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
 
-            plt.show
-
-            return
-
-        st.write(confusion_matrix_plot())
+            return st.write(fig)
 
         # Count of Predicted classes
 
@@ -488,6 +484,9 @@ try:
             return st.write(fig)
 
         placeholder = st.empty()
+
+        st.markdown("###### Confusion Matrix")
+        confusion_matrix_plot()
 
         with placeholder.container():
             fig_col1, fig_col2 = st.columns((2, 2))
