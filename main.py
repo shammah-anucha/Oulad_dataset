@@ -489,7 +489,7 @@ try:
         confusion_matrix_plot()
 
         with placeholder.container():
-            fig_col1, fig_col2 = st.columns((2, 2))
+            fig_col1, fig_col2 = st.columns(2)
 
             with fig_col1:
                 st.markdown("###### Predicted Final Results")
