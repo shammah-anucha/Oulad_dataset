@@ -16,14 +16,10 @@ st.set_page_config(
     layout="centered",
 )
 
-data = pd.read_csv(
-    "https://raw.githubusercontent.com/shammah-anucha/Dataset/main/testing%20data.csv"
-)
+data = pd.read_csv("testing data.csv")
 feature_list = data.columns
 
-target_data = pd.read_csv(
-    "https://raw.githubusercontent.com/shammah-anucha/Dataset/main/target%20data.csv"
-)
+target_data = pd.read_csv("target data.csv")
 
 st.header("Student Prediction App")
 st.write(
