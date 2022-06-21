@@ -507,7 +507,7 @@ try:
         st.subheader("Detailed Data View")
         frames2 = [full_set, target_data]
         full_set_pred = pd.concat(frames2, axis=1)
-        st.dataframe(full_set)
+        st.dataframe(full_set_pred)
 
         st.write(f"Thank you! I hope you liked it.")
         st.write(
