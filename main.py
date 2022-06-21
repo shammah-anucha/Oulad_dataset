@@ -27,11 +27,14 @@ target_data = pd.read_csv(
 
 st.header("Student Prediction App")
 st.write(
-    "This application is run by a Machine learning model that predicts the final results of students."
-    "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data"
+    "This application is powered by a Machine learning model that predicts the final results of students."
+    "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data "
     "can be accessed by clicking the 'Download Test Data' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed."
     "Three bar charts are plotted to show the predicted classes againsts some selected features. And finally a dataframe of the entire test data with the predicted classes is displayed"
 )
+
+
+st.download_button("Download CSV", target_data, "target_data/csv")
 
 try:
     uploaded_file = st.file_uploader("Choose a file")
@@ -488,11 +491,22 @@ try:
         st.markdown("###### Confusion Matrix")
         confusion_matrix_plot()
 
+        st.markdown("###### Comparing IMD Band and final_result")
+        imd_results()
+        st.caption(
+            "This plot shows the results of the students and their respective IMD band. IMD stands for Indices of multiple deprivation. They are widely-used datasets within the UK to classify the relative deprivation of small areas."
+            "This visual is important so that the teachers can know if the locations of the students will have an effect on their grades"
+        )
+
         st.markdown("###### Predicted Final Results")
         predicted_result_count()
+        st.caption(
+            "This visual shows the count of the predicted classes. This will give the teachers an idea on the amount of students that will do well or drop out"
+        )
 
         st.markdown("###### Comparing Gender and final_result")
         gender_results()
+        st.caption("This visual shows the predicted class grouped by gender.")
 
         # with placeholder.container():
         #     fig_col1, fig_col2 = st.columns(2)
@@ -504,9 +518,6 @@ try:
         #     with fig_col2:
         #         st.markdown("###### Comparing Gender and final_result")
         #         gender_results()
-
-        st.markdown("###### Comparing IMD Band and final_result")
-        imd_results()
 
         st.markdown("### Detailed Data View")
         st.dataframe(full_set)
