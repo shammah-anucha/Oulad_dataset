@@ -25,8 +25,8 @@ st.header("Student Prediction App")
 st.write(
     "This application is powered by a Machine learning model that predicts the final results of students."
     "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data "
-    "can be accessed by clicking the 'Download CSV' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed. "
-    "Three bar charts are plotted to show the predicted classes againsts some selected features. And finally a dataframe of the entire test data with the predicted classes is displayed"
+    "can be accessed by clicking the 'Download CSV' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm as well as three bar charts are displayed "
+    "after clicking the 'Make Prediction' button. And finally a dataframe of the entire test data with the predicted classes is displayed"
 )
 
 with open("testing data.csv") as f:
@@ -504,18 +504,9 @@ try:
         gender_results()
         st.caption("This visual shows the predicted class grouped by gender.")
 
-        # with placeholder.container():
-        #     fig_col1, fig_col2 = st.columns(2)
-
-        #     with fig_col1:
-        #         st.markdown("###### Predicted Final Results")
-        #         predicted_result_count()
-
-        #     with fig_col2:
-        #         st.markdown("###### Comparing Gender and final_result")
-        #         gender_results()
-
-        st.markdown("### Detailed Data View")
+        st.subheader("Detailed Data View")
+        frames2 = [full_set, target_data]
+        full_set_pred = pd.concat(frames2, axis=1)
         st.dataframe(full_set)
 
         st.write(f"Thank you! I hope you liked it.")
