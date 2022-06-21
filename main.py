@@ -29,12 +29,13 @@ st.header("Student Prediction App")
 st.write(
     "This application is powered by a Machine learning model that predicts the final results of students."
     "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data "
-    "can be accessed by clicking the 'Download Test Data' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed."
+    "can be accessed by clicking the 'Download CSV' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm is displayed."
     "Three bar charts are plotted to show the predicted classes againsts some selected features. And finally a dataframe of the entire test data with the predicted classes is displayed"
 )
 
-
-st.download_button("Download CSV", target_data)
+with open("testing_data.csv") as f:
+    st.download_button("Download CSV", f)
+# st.download_button("Download CSV", target_data)
 
 try:
     uploaded_file = st.file_uploader("Choose a file")
