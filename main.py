@@ -121,7 +121,7 @@ try:
             )
 
             fig = plt.figure(figsize=(10, 7))
-            sn.heatmap(cm, annot=True, fmt="d")
+            sn.heatmap(cm, annot=True, fmt="d", cmap="Blues")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
 
