@@ -122,7 +122,7 @@ try:
                 labels=target_data.final_result, predictions=pred
             )
 
-            fig = plt.figure(figsize=(7, 4))
+            fig = plt.figure(figsize=(5, 4))
             sn.heatmap(cm, annot=True, fmt="d", cmap="Blues")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
