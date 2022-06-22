@@ -28,7 +28,7 @@ st.header("Student Prediction App")
 st.write(
     "This application is powered by a Machine learning model that predicts the final results of students."
     "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data "
-    "can be accessed by clicking the 'Download CSV' button. A confusion matrix that shows the summary of the Artificial Neural Newtwork algorithm as well as three bar charts are displayed "
+    "can be accessed by clicking the 'Download CSV' button. A confusion matrix that shows the summary of the Artificial Neural Network algorithm as well as three bar charts are displayed "
     "after clicking the 'Make Prediction' button. And finally a dataframe of the entire test data with the predicted classes is displayed"
 )
 
@@ -122,10 +122,11 @@ try:
                 labels=target_data.final_result, predictions=pred
             )
 
-            fig = plt.figure(figsize=(7, 4))
+            fig, ax = plt.figure(figsize=(7, 4))
             sn.heatmap(cm, annot=True, fmt="d", cmap="Blues")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
+            ax.axis("equal")
 
             return st.write(fig)
 
