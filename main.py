@@ -20,7 +20,9 @@ data = pd.read_csv("testing data.csv")
 feature_list = data.columns
 
 target_data = pd.read_csv("target data.csv")
-target_data2 = pd.read_csv("target data.csv")
+target_data2 = target_data.copy()
+target_data2["final_result"] = target_data2["Ground truth"]
+
 
 st.header("Student Prediction App")
 st.write(
