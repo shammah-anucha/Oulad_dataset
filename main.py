@@ -20,6 +20,7 @@ data = pd.read_csv("testing data.csv")
 feature_list = data.columns
 
 target_data = pd.read_csv("target data.csv")
+target_data2 = pd.read_csv("target data.csv")
 
 st.header("Student Prediction App")
 st.write(
@@ -96,7 +97,7 @@ try:
 
         full_set["Prediction"] = full_set.apply(lambda row: categorise(row), axis=1)
 
-        st.subheader("Visualizations")
+        st.subheader("Data Visualization")
 
         # Confusion Matrix
 
@@ -505,9 +506,12 @@ try:
         st.caption("This visual shows the predicted class grouped by gender.")
 
         st.subheader("Detailed Data View")
-        frames2 = [full_set, target_data]
+        frames2 = [full_set, target_data2]
         full_set_pred = pd.concat(frames2, axis=1)
         st.dataframe(full_set_pred)
+        full_set_pred.to_csv("Detailed Data View.csv")
+        with open("Detailed Data View.csv") as f:
+            st.download_button("Download", f)
 
         st.write(f"Thank you! I hope you liked it.")
         st.write(
