@@ -21,7 +21,7 @@ feature_list = data.columns
 
 target_data = pd.read_csv("target data.csv")
 target_data2 = target_data.copy()
-target_data2["final_result"] = target_data2["Ground truth"]
+target_data2.rename(columns={"final_result": "Ground truth"}, inplace=True)
 
 
 st.header("Student Prediction App")
