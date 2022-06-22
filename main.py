@@ -122,11 +122,10 @@ try:
                 labels=target_data.final_result, predictions=pred
             )
 
-            fig, ax = plt.figure(figsize=(7, 4))
+            fig = plt.figure(figsize=(7, 4))
             sn.heatmap(cm, annot=True, fmt="d", cmap="Blues")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
-            ax.axis("equal")
 
             return st.write(fig)
 
