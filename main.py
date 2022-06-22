@@ -122,7 +122,7 @@ try:
                 labels=target_data.final_result, predictions=pred
             )
 
-            fig = plt.figure(figsize=(10, 7))
+            fig = plt.figure(figsize=(7, 4))
             sn.heatmap(cm, annot=True, fmt="d", cmap="Blues")
             plt.xlabel("Predicted")
             plt.ylabel("Truth")
@@ -489,6 +489,9 @@ try:
 
         st.markdown("###### Confusion Matrix")
         confusion_matrix_plot()
+        st.caption(
+            "The confusion matrix compares the result of the predicted classes to the ground truth"
+        )
 
         st.markdown("###### Comparing IMD Band and final_result")
         imd_results()
@@ -521,5 +524,3 @@ try:
         )
 except NameError:
     st.warning(f"Please Upload a CSV File!")
-# except:
-#     st.warning(f"Please Upload a CSV File!")
