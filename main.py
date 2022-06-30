@@ -11,7 +11,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 im = Image.open("favicon.ico")
 st.set_page_config(
-    page_title="Student Prediction App",
+    page_title="Student Performance Prediction App",
     page_icon=im,
     layout="centered",
 )
@@ -24,7 +24,7 @@ target_data2 = target_data.copy()
 target_data2.rename(columns={"final_result": "Ground truth"}, inplace=True)
 
 
-st.header("Student Prediction App")
+st.header("Student Performance Prediction App")
 st.write(
     "This application is powered by a Machine learning model that predicts the final results of students."
     "The final result classes are Distinction, Fail, Pass, and Withdrawn. For the purpose of testing, the testing data "
@@ -41,7 +41,7 @@ try:
         df = pd.read_csv(uploaded_file)
 
         # load model
-        ann_model = tf.keras.models.load_model("new_ann_model.h5")
+        ann_model = tf.keras.models.load_model("new_ann_model2.h5")
 
         # Data Encoding
         sws_enc = pd.get_dummies(
